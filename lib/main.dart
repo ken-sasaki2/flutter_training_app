@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training_app/next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,26 +64,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('images/sample.jpg'),
-              OutlinedButton(
-                child: Text("画面遷移"),
-                onPressed: () async {
-                  final retrunText = await Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NextPage('動くかな？')),
-                  );
-                  print(retrunText);
-                },
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints.expand(height: 30, width: 300.0),
+          child: const TextField(
+            decoration: InputDecoration(
+              hintText: '名前を入力',
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey),
               ),
-            ],
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.red),
+              ),
+            ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

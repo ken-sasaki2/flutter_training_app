@@ -17,10 +17,15 @@ class NextPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.add),
+              const Text('This is sample text.\n これはサンプルテキストです。',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.red,
+                      fontStyle: FontStyle.italic)),
               Center(
                 child: OutlinedButton(
-                  child: Icon(Icons.chevron_left),
+                  child: const Icon(Icons.chevron_left),
                   onPressed: () {
                     // ここで戻る
                     Navigator.pop(context, '動けば嬉しい！');

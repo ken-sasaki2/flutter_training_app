@@ -69,15 +69,21 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-          child: OutlinedButton(
-            child: Text("画面遷移"),
-            onPressed: () {
-              // ここがアクション
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NextPage()),
-              );
-            },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('images/sample.jpg'),
+              OutlinedButton(
+                child: Text("画面遷移"),
+                onPressed: () async {
+                  final retrunText = await Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NextPage('動くかな？')),
+                  );
+                  print(retrunText);
+                },
+              ),
+            ],
           ),
         ));
   }

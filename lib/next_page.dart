@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class NextPage extends StatelessWidget {
+  NextPage(this.text); // 引数を登録
+
+  final String text; // 引数
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -10,15 +14,21 @@ class NextPage extends StatelessWidget {
         ),
         body: Container(
           color: Colors.yellow,
-          child: Center(
-            child: OutlinedButton(
-              child: Text("go back."),
-              onPressed: () {
-                // ここで戻る
-                Navigator.pop(context);
-                print("画面を戻る");
-              },
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.add),
+              Center(
+                child: OutlinedButton(
+                  child: Icon(Icons.chevron_left),
+                  onPressed: () {
+                    // ここで戻る
+                    Navigator.pop(context, '動けば嬉しい！');
+                    print("画面を戻る");
+                  },
+                ),
+              ),
+            ],
           ),
         ));
   }
